@@ -44,10 +44,10 @@ module.exports = [
   {
     devtool: 'source-map',
     entry: {
-      app: './test/index.js',
+      app: './demo/index.js',
     },
     output: {
-      path: path.join(__dirname, '/test'),
+      path: path.join(__dirname, '/demo'),
       filename: 'app.js',
     },
     module: moduleConf,
