@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
-import { ColumnChooser } from '../src/index';
+import ColumnChooser from '../dist/index';
 import './index.less';
 
 

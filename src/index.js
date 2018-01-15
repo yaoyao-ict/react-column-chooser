@@ -1,3 +1,3 @@
 import ColumnChooser from './components/index';
 
-export { ColumnChooser };
+export default ColumnChooser;

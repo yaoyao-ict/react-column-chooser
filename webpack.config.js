@@ -27,29 +27,36 @@ const moduleConf = {
   ],
 };
 
-module.exports = [
-  {
-    devtool: 'source-map',
-    entry: {
-      index: './src/index.js',
-    },
-    output: {
-      path: path.join(__dirname, '/dist'),
-      filename: 'react-column-chooser.js',
-      library: 'react-column-chooser',
-      libraryTarget: 'umd',
-    },
-    module: moduleConf,
+module.exports ={
+  devtool: 'source-map',
+  entry: {
+    index: './src/index.js',
   },
-  {
-    devtool: 'source-map',
-    entry: {
-      app: './demo/index.js',
-    },
-    output: {
-      path: path.join(__dirname, '/demo'),
-      filename: 'app.js',
-    },
-    module: moduleConf,
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'index.js',
+    library: 'ReactColumnChooser',
+    libraryTarget: 'umd',
   },
-];
+  externals: {
+    lodash: {
+      root: '_',
+      commonjs2: 'lodash',
+      commonjs: 'lodash',
+      amd: 'lodash'
+    },
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'prop-types': {
+      root: 'PropTypes',
+      commonjs2: 'prop-types',
+      commonjs: 'prop-types',
+      amd: 'prop-types'
+    }
+  },
+  module: moduleConf,
+};
