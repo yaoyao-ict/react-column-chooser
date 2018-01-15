@@ -1,5 +1,6 @@
 /* eslint-env node */
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const moduleConf = {
   rules: [
@@ -59,4 +60,7 @@ module.exports ={
     }
   },
   module: moduleConf,
+  plugins: [
+    new UglifyJsPlugin()
+  ]
 };
