@@ -5,8 +5,7 @@
   "main": "./dist/react-column-chooser.js",
   "scripts": {
     "build": "webpack",
-    "demo": "webpack && cd demo && webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo": "webpack && cd demo && webpack"
   },
   "author": "yaoyao",
   "license": "ISC",
@@ -28,6 +27,7 @@
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
+    "jquery": "^3.3.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "lodash": "^4.17.4",

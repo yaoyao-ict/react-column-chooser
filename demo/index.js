@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
-import ColumnChooser from '../dist/index';
+import $ from 'jquery';
+// import ColumnChooser from '../dist/index';
+import ColumnChooser from '../src/components/index';
 import './index.less';
 
 
@@ -181,6 +183,8 @@ class App extends React.Component {
     );
   }
 }
+
+$(document.body).append('<div id="root"></dvi>');
 
 ReactDOM.render(
   <App />,

@@ -28,7 +28,7 @@ const moduleConf = {
   ],
 };
 
-module.exports ={
+module.exports = {
   devtool: 'source-map',
   entry: {
     index: './src/index.js',
@@ -44,23 +44,23 @@ module.exports ={
       root: '_',
       commonjs2: 'lodash',
       commonjs: 'lodash',
-      amd: 'lodash'
+      amd: 'lodash',
     },
     react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react'
+      amd: 'react',
     },
     'prop-types': {
       root: 'PropTypes',
       commonjs2: 'prop-types',
       commonjs: 'prop-types',
-      amd: 'prop-types'
-    }
+      amd: 'prop-types',
+    },
   },
   module: moduleConf,
   plugins: [
-    new UglifyJsPlugin()
-  ]
+    new UglifyJsPlugin(),
+  ],
 };
