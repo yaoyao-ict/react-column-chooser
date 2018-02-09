@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/v/react-column-chooser.svg)](https://www.npmjs.com/package/react-column-chooser)
 [![Build Status](https://travis-ci.org/yaoyao-ict/react-column-chooser.svg?branch=master)](https://travis-ci.org/yaoyao-ict/react-column-chooser)
 [![Coverage Status](https://coveralls.io/repos/github/yaoyao-ict/react-column-chooser/badge.svg)](https://coveralls.io/github/yaoyao-ict/react-column-chooser)
-[![Github Releases](https://img.shields.io/github/downloads/atom/atom/latest/total.svg)](https://github.com/yaoyao-ict/react-column-chooser)
+[![npm](https://img.shields.io/npm/dt/react-column-chooser.svg)](https://www.npmjs.com/package/react-column-chooser)
 
 >It helps you to add, remove and reorder your table columns
 
