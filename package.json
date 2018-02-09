@@ -1,12 +1,12 @@
 {
   "name": "react-column-chooser",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "It helps you to add, remove and reorder your table columns.",
   "main": "./dist/react-column-chooser.js",
   "scripts": {
     "build": "webpack",
     "demo": "webpack && cd demo && webpack",
-    "test": "webpack && jest"
+    "test": "webpack && jest && cd demo && webpack"
   },
   "author": "yaoyao",
   "license": "ISC",
@@ -16,7 +16,7 @@
   "jest": {
     "verbose": true,
     "testMatch": [
-      "<rootDir>/test/**/*.js"
+      "<rootDir>/test/*.js"
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
