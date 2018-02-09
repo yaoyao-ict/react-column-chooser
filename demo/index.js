@@ -5,7 +5,7 @@ import '../less/index.less';
 import { App } from '../test/test-app/app-config';
 
 
-$(document.body).append('<div id="root"></dvi>');
+$(document.body).append('<div id="root"></div>');
 
 ReactDOM.render(
   <App />,

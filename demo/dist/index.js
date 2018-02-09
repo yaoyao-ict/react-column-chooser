@@ -18104,7 +18104,7 @@ var _appConfig = __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery2.default)(document.body).append('<div id="root"></dvi>');
+(0, _jquery2.default)(document.body).append('<div id="root"></div>');
 
 _reactDom2.default.render(_react2.default.createElement(_appConfig.App, null), document.getElementById('root'));
 
@@ -46525,7 +46525,9 @@ var App = exports.App = function (_React$Component) {
           selected: this.state.savedIds,
           categories: appConfig.categories,
           allowSaveName: appConfig.allowSaveName,
-          i18n: appConfig.i18n,
+          i18n: {
+            getString: _lodash2.default.identity
+          },
           onSave: this.onSave,
           onCancel: this.onCancel
         });
