@@ -5,21 +5,38 @@
   "main": "./dist/react-column-chooser.js",
   "scripts": {
     "build": "webpack",
-    "demo": "webpack && cd demo && webpack"
+    "demo": "webpack && cd demo && webpack",
+    "test": "jest"
   },
   "author": "yaoyao",
   "license": "ISC",
   "files": [
     "dist"
   ],
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "<rootDir>/test/**/*.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**/*.js"
+    ],
+    "coverageDirectory": "./coverage"
+  },
   "devDependencies": {
     "and": "0.0.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.2.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-enzyme": "^1.0.0-beta.0",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-loader": "^1.9.0",
@@ -27,12 +44,15 @@
     "eslint-plugin-jest": "^21.5.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
+    "expect": "^1.0.0",
+    "jest": "^22.2.1",
     "jquery": "^3.3.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "lodash": "^4.17.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0"

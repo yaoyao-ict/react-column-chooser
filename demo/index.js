@@ -161,7 +161,7 @@ class App extends React.Component {
     } else {
       columnView = (
         <button
-          className="btn btn-primary"
+          className="btn btn-primary show-column-chooser"
           type="button"
           onClick={() => this.onEdit()}
         >
