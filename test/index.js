@@ -90,4 +90,20 @@ describe('Column Chooser Test', () => {
     expect(app.find('a.column-chooser-add-column-link').length).to.equal(0);
     expect(app.find('.column-chooser-selected li.draggable-list-item').length).to.equal(selectedCount + addLinkCount);
   });
+
+  test('Should save with name and columns', () => {
+    expect(app.find('.result-panel span.result-name').text()).to.equal('saved name: ');
+    app.find('.show-column-chooser').simulate('click');
+
+    expect(app.find('.result-panel').length).to.equal(0);
+    app.find('.column-chooser-save-name-checkbox').simulate('click');
+
+    expect(app.find('.column-chooser-saved-name').length).to.equal(1);
+    app.find('.column-chooser-saved-name').getDOMNode().value = 'preference1';
+    app.find('.column-chooser-save-panel .btn-primary').simulate('click');
+
+    console.log(app.find('span.result-name').text()); //eslint-disable-line
+
+    expect(app.find('span.result-name').text().includes('preference1')).to.equal(true);
+  });
 });

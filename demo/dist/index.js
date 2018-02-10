@@ -46525,9 +46525,7 @@ var App = exports.App = function (_React$Component) {
           selected: this.state.savedIds,
           categories: appConfig.categories,
           allowSaveName: appConfig.allowSaveName,
-          i18n: {
-            getString: _lodash2.default.identity
-          },
+          i18n: appConfig.i18n,
           onSave: this.onSave,
           onCancel: this.onCancel
         });
@@ -46548,19 +46546,19 @@ var App = exports.App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
+        !this.state.isEditting && _react2.default.createElement(
           'div',
           { className: 'result-panel' },
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'result-name' },
             'saved name: ',
             this.state.savedName
           ),
           _react2.default.createElement('br', null),
           _react2.default.createElement(
             'span',
-            null,
+            { className: 'result-columns' },
             'saved columns: ',
             this.state.savedIds.join(', ')
           ),

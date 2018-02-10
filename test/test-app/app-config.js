@@ -167,12 +167,15 @@ export class App extends React.Component {
 
     return (
       <div>
-        <div className="result-panel">
-          <span>saved name: {this.state.savedName}</span>
-          <br />
-          <span>saved columns: {this.state.savedIds.join(', ')}</span>
-          <br />
-        </div>
+        {
+          !this.state.isEditting &&
+          <div className="result-panel">
+            <span className="result-name">saved name: {this.state.savedName}</span>
+            <br />
+            <span className="result-columns">saved columns: {this.state.savedIds.join(', ')}</span>
+            <br />
+          </div>
+        }
         {columnView}
       </div>
     );
