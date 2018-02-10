@@ -9,4 +9,7 @@
 # production
 /dist
 
+# demo
+/demo/dist
+
 npm-debug.log*
