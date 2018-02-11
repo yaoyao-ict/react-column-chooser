@@ -91,6 +91,24 @@ describe('Column Chooser Test', () => {
     expect(app.find('.column-chooser-selected li.draggable-list-item').length).to.equal(selectedCount + addLinkCount);
   });
 
+  test('Should remove all work as expected', () => {
+    app.find('.show-column-chooser').simulate('click');
+
+    const firstOptionListRemovableCount = _.filter(appConfig.categories[0].options, opt => !opt.selectOption || opt.selectOption !== 'locked').length;
+
+    app.find('.add-all-in-list').simulate('click');
+    expect(app.find('.remove-all-in-list').length).to.equal(1);
+
+    app.find('.remove-all-in-list').simulate('click');
+    expect(app.find('a.column-chooser-add-column-link').length).to.equal(firstOptionListRemovableCount);
+
+    const finalCount = app.find('.draggable-list-item').length;
+
+    app.find('.column-chooser-save-panel .btn-primary').simulate('click');
+    expect(app.find('.result-columns-count').length).to.equal(1);
+    expect(app.find('.result-columns-count').text()).to.equal(finalCount.toString());
+  });
+
   test('Should save with name and columns', () => {
     expect(app.find('.result-panel span.result-name').text()).to.equal('saved name: ');
     app.find('.show-column-chooser').simulate('click');
@@ -102,8 +120,71 @@ describe('Column Chooser Test', () => {
     app.find('.column-chooser-saved-name').getDOMNode().value = 'preference1';
     app.find('.column-chooser-save-panel .btn-primary').simulate('click');
 
-    console.log(app.find('span.result-name').text()); //eslint-disable-line
-
     expect(app.find('span.result-name').text().includes('preference1')).to.equal(true);
+  });
+
+  test('Should cancel work as expected', () => {
+    expect(app.find('.result-panel span.result-name').text()).to.equal('saved name: ');
+    app.find('.show-column-chooser').simulate('click');
+
+    expect(app.find('.result-panel').length).to.equal(0);
+    app.find('.column-chooser-save-name-checkbox').simulate('click');
+
+    expect(app.find('.column-chooser-saved-name').length).to.equal(1);
+    app.find('.column-chooser-saved-name').getDOMNode().value = 'preference1';
+    app.find('.column-chooser-save-panel .btn-default').simulate('click');
+
+    expect(app.find('span.result-name').text().includes('preference1')).to.equal(false);
+  });
+
+  test('Should drag to reorder columns', () => {
+    const getDragEventMock = index => ({
+      target: {
+        closest: () => app.find('.draggable-list__item-draggable').at(index).getDOMNode(),
+      },
+    });
+
+    app.find('.show-column-chooser').simulate('click');
+
+    expect(app.find('.result-panel').length).to.equal(0);
+
+    const draggableLength = app.find('.draggable-list__item-draggable').length;
+    const firstDraggableText = app.find('.draggable-list__item-draggable .remove').first().getDOMNode().dataset.itemKey;
+    const lastDraggableText = app.find('.draggable-list__item-draggable .remove').last().getDOMNode().dataset.itemKey;
+
+    app.find('.draggable-list__item-draggable').first().simulate('dragstart');
+    app.find('.draggable-list__item-draggable').at(draggableLength - 1).simulate('dragover', getDragEventMock(draggableLength - 1));
+    app.find('.draggable-list__item-draggable').at(draggableLength - 1).simulate('drop', getDragEventMock(draggableLength - 1));
+    app.find('.column-chooser-save-panel .btn-primary').simulate('click');
+
+    expect(app.find('.result-columns').length).to.equal(1);
+    expect(app.find('.result-columns').text().endsWith(firstDraggableText)).to.equal(true);
+
+    app.find('.show-column-chooser').simulate('click');
+    expect(app.find('.column-chooser').length).to.equal(1);
+
+    app.find('.draggable-list__item-draggable').last().simulate('dragstart');
+    app.find('.draggable-list__item-draggable').at(0).simulate('dragover', getDragEventMock(0));
+    app.find('.draggable-list__item-draggable').at(0).simulate('drop', getDragEventMock(0));
+    app.find('.column-chooser-save-panel .btn-primary').simulate('click');
+
+    expect(app.find('.result-columns').length).to.equal(1);
+    expect(app.find('.result-columns').text().endsWith(lastDraggableText)).to.equal(true);
+  });
+
+  test('Should dragover have preview class name', () => {
+    const getDragEventMock = index => ({
+      target: {
+        closest: () => app.find('.draggable-list__item-draggable').at(index).getDOMNode(),
+      },
+    });
+
+    app.find('.show-column-chooser').simulate('click');
+
+    expect(app.find('.result-panel').length).to.equal(0);
+
+    app.find('.draggable-list__item-draggable').first().simulate('dragstart');
+    app.find('.draggable-list__item-draggable').at(0).simulate('dragover', getDragEventMock(0));
+    expect(app.find('.draggable-list__item-draggable').first()).to.have.className('draggable-list__item-preview');
   });
 });

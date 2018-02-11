@@ -12,4 +12,6 @@
 # demo
 /demo/dist
 
+#debug
+/.vscode
 npm-debug.log*

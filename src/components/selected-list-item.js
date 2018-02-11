@@ -12,7 +12,7 @@ const SelectedListItem = ({
     {selectOption !== 'locked' &&
       <span className="trigger-icon" />
     }
-    <span>{name}</span>
+    <span className="selected-item-text">{name}</span>
     {selectOption !== 'locked' && selectOption !== 'mandatory' &&
       <span className="remove" data-item-key={id}>
         <a

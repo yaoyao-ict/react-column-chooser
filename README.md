@@ -10,6 +10,20 @@
 ```bash
 npm install --save react-column-chooser
 ```
+## Build
+```bash
+npm run build
+```
+## Demo
+```bash
+npm run demo
+```
+Have a try at /demo/index.html
+
+## Test
+```bash
+npm test
+```
 
 ## Usage
 ```javascript

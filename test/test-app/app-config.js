@@ -95,6 +95,7 @@ export const appConfig = {
   selected: [
     'company',
     'id',
+    'zipcode',
     'revenue',
     'budget',
     'customized1',
@@ -173,6 +174,9 @@ export class App extends React.Component {
             <span className="result-name">saved name: {this.state.savedName}</span>
             <br />
             <span className="result-columns">saved columns: {this.state.savedIds.join(', ')}</span>
+            <br />
+            <span>saved columns count: </span>
+            <span className="result-columns-count">{this.state.savedIds.length}</span>
             <br />
           </div>
         }
