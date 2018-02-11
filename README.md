@@ -1,7 +1,7 @@
 # react-column-chooser
 [![npm](https://img.shields.io/npm/v/react-column-chooser.svg)](https://www.npmjs.com/package/react-column-chooser)
 [![Build Status](https://travis-ci.org/yaoyao-ict/react-column-chooser.svg?branch=master)](https://travis-ci.org/yaoyao-ict/react-column-chooser)
-[![Coverage Status](https://coveralls.io/repos/github/yaoyao-ict/react-column-chooser/badge.svg)](https://coveralls.io/github/yaoyao-ict/react-column-chooser)
+[![Coveralls github](https://coveralls.io/repos/github/yaoyao-ict/react-column-chooser/badge.svg?branch=master)](https://coveralls.io/github/yaoyao-ict/react-column-chooser?branch=master)
 [![npm](https://img.shields.io/npm/dt/react-column-chooser.svg)](https://www.npmjs.com/package/react-column-chooser)
 
 >It helps you to add, remove and reorder your table columns
@@ -39,6 +39,7 @@ const columnChooserConfig = {
         {
           id: 'company',
           name: 'Company',
+          // selectOption: 'locked' || 'mandatory' || 'optional'(default)
           selectOption: 'locked',
         },
         {
@@ -69,7 +70,9 @@ const columnChooserConfig = {
     'revenue',
     'budget',
   ],
+  // Apply the column settings with a string name is allowed
   allowSaveName: true,
+  // In Demo page, string start with ColumnChooser_ can be localized
   i18n: {
     getString: _.identity,
   },
